@@ -1,0 +1,14 @@
+Aplicar todo o descrito sobre um dataset de cerca de 100 imagens
+
+Implementar os códigos em python ao invés de matlab
+Feito o código com filtro unsharpen, implementar este sem biblioteca
+
+Encontrar um imagem adequada...
+Converter para colorspace de 8bits
+Usar uma função para adicionar ruído salt & pepper de 0.06
+Em seguida adicionar ruído de 0.005
+Em seguida adicionar blur Gaussiano de média 0 e variância 0.001
+Em seguida adicionar blur Gaussiano de média 0 e variância 0.03
+
+Usar filtros para remover o ruído, calcular o PSNR
+Os filtros a serem usados são os de média e mediana
