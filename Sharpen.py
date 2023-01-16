@@ -1,12 +1,14 @@
 import cv2
 import numpy as np
 
-
+"""
 def fspecialUnsharpen(alpha):
     h = np.array([[-alpha, alpha-1, -alpha],
                 [alpha-1, alpha + 5, alpha-1],
                 [-alpha, alpha-1, -alpha]])
     return (1/(alpha+1))*h
+
+"""
 
 
 img = cv2.imread("moon.png")
