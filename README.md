@@ -61,6 +61,8 @@ onde o [M M] indica uma região de M x M pixels da qual se extrai a mediana. Par
 
 * d) Para cada uma das 4 versões ruidosas, para cada um dos dois tipos de filtro (média e mediana) e para cada um dos 3 valores de M, calcule a PSNR entre a imagem original e a imagem ruidosa após passar pelo filtro. Para ter uma ideia dos valores envolvidos, calcule também a PSNR entre a imagem original e a versão ruidosa, sem passar por filtro.
   * Consta no repositório.
+  
+ 
 Ao fim das simulações, você terá resultados como o abaixo. Componha a partir deles uma tabela e a coloque como parte de seu relatório. Coloque também o script Matlab / Octave usado.
 
 Responda no relatório o seguinte:
