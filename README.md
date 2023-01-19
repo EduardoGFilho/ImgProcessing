@@ -4,10 +4,12 @@
   1)Realçar o contraste de uma imagem
   2)Remover o ruído do tipo “salt & pepper” e “gaussian” de imagens
 
-Realçar o contraste de uma imagem
+
+##1)Realçar o contraste de uma imagem
 Siga os passos:
 Estude o código abaixo.
 
+~~~Matlab
 %retirado de http://www.mathworks.com/help/images/filter-images-using-predefined-filters.html
 I = imread('moon.tif');
 h = fspecial('unsharp')
@@ -19,7 +21,7 @@ Ao invés do filtro h acima (obtido com fspecial), construa você mesmo um filtr
 Explique o motivo do seu filtro realçar o contraste e coloque uma imagem filtrada por ele no seu relatório, junto com a original. Pode ser a própria “moon.tif” ou outra.
 O seu filtro pode ser entendido como “passa-baixa” ou “passa-alta”?
 
-Remover o ruído do tipo “salt & pepper” e “gaussian” de imagens
+2)Remover o ruído do tipo “salt & pepper” e “gaussian” de imagens
 
 Siga os passos:
 Obtenha uma foto que tenha um fundo relativamente homogêneo (“quase” uma única cor) e um ou mais objetos em 1º plano. A resolução mínima é de 200 x 200 pixels (pode ser maior). Pode ser uma foto sua ou de um rosto obtido na Internet. Não repita a foto usada por um colega nem deixe repetirem a sua. Para lhe inspirar e servir como exemplo, a foto abaixo tem as características desejadas.
@@ -43,27 +45,6 @@ onde o [M M] indica uma região de M x M pixels da qual se extrai a mediana. Par
 Para cada uma das 4 versões ruidosas, para cada um dos dois tipos de filtro (média e mediana) e para cada um dos 3 valores de M, calcule a PSNR entre a imagem original e a imagem ruidosa após passar pelo filtro. Para ter uma ideia dos valores envolvidos, calcule também a PSNR entre a imagem original e a versão ruidosa, sem passar por filtro.
 
 Ao fim das simulações, você terá resultados como o abaixo. Componha a partir deles uma tabela e a coloque como parte de seu relatório. Coloque também o script Matlab / Octave usado.
-
-For noisy image version number = 1  (todos valores de PSNR estão em dB)
-Noisy image (no filtering) PSNR=27.4411
-M=3, PSNRs: average=26.1491, median=30.4124
-M=5, PSNRs: average=23.9516, median=27.6836
-M=7, PSNRs: average=22.5805, median=26.6503
-For noisy image version number = 2
-Noisy image (no filtering) PSNR=16.461
-M=3, PSNRs: average=22.7848, median=29.6546
-M=5, PSNRs: average=22.5609, median=27.4345
-M=7, PSNRs: average=21.7025, median=26.4902
-For noisy image version number = 3
-Noisy image (no filtering) PSNR=30.0155
-M=3, PSNRs: average=26.3282, median=29.6184
-M=5, PSNRs: average=24.0105, median=27.5438
-M=7, PSNRs: average=22.6249, median=26.5952
-For noisy image version number = 4
-Noisy image (no filtering) PSNR=16.6801
-M=3, PSNRs: average=22.6849, median=22.346
-M=5, PSNRs: average=22.3911, median=23.9755
-M=7, PSNRs: average=21.5141, median=24.0863
 
 Responda no relatório o seguinte:
 Por que para o ruído salt & pepper o filtro de mediana é tão melhor que o de média?
