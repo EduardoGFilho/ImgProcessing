@@ -6,7 +6,7 @@ from Filters import unsharpMask
 
 
 files = list(pathlib.Path("./Inputs").rglob("*.png"))
-files = list(pathlib.Path("./Inputs").rglob("*.jpeg"))
+files += list(pathlib.Path("./Inputs").rglob("*.jpeg"))
 
 saveTo = "./Filtered/"
 
