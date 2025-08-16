@@ -1,16 +1,21 @@
-# Projeto de Processamento de Imagens
+# Image Processing Project
 
-## O projeto prevê dois problemas de filtragem de imagens:
-* 1) Realçar o contraste de uma imagem
-* 2) Remover o ruído do tipo “salt & pepper” e “gaussian” de imagens
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/EduardoGFilho/ImgProcessing/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.pt-br.md://github.com/EduardoGFilho/ImgProcessing/blob/main/README.pt.md)
+
+_Translated with DeepL_
+
+## The project envisages two image filtering problems:
+* 1) Enhancing the contrast of an image
+* 2) Removing “salt & pepper” and “Gaussian” noise from images
 
 
-## 1) Realçar o contraste de uma imagem
-Siga os passos:
-* a) Estude o código abaixo.
+## 1) Enhancing the contrast of an image
+Follow the steps:
+* a) Study the code below.
 
 ~~~Matlab
-%retirado de http://www.mathworks.com/help/images/filter-images-using-predefined-filters.html
+%taken from http://www.mathworks.com/help/images/filter-images-using-predefined-filters.html
 I = imread('moon.tif');
 h = fspecial('unsharp')
 I2 = imfilter(I,h);
@@ -18,59 +23,60 @@ imshow(I), title('Original Image')
 figure, imshow(I2), title('Filtered Image')
 ~~~
 
-* b) Ao invés do filtro h acima (obtido com fspecial), construa você mesmo um filtro que produza resultado semelhante, de realce de contraste, e informe a matriz que denota este filtro.
-  * A implementação consta no repositório, a matriz utilizada foi:
-~~~Python 
-#passando 0.2 como parâmetro para a funcao
+* b) Instead of the filter h above (obtained with fspecial), build yourself a filter that produces a similar result, with contrast enhancement, and enter the matrix that denotes this filter.
+  * The implementation is in the repository, the matrix used was:
+~~~Python
+# passing 0.2 as a parameter to the function
 def fspecialUnsharpen(alpha):
-    h = np.array([[-alpha, alpha-1, -alpha],
-                [alpha-1, alpha + 5, alpha-1],
-                [-alpha, alpha-1, -alpha]])
-    return (1/(alpha+1))*h
+ h = np.array([[-alpha, alpha-1, -alpha],
+ [alpha-1, alpha + 5, alpha-1],
+ [-alpha, alpha-1, -alpha]])
+ return (1/(alpha+1))*h
 ~~~
-* c) Explique o motivo do seu filtro realçar o contraste e coloque uma imagem filtrada por ele no seu relatório, junto com a original. Pode ser a própria “moon.tif” ou outra.
-  * As imagens constam no repositório, dentro da pasta "Sharpen"
-  * A matriz apresentada pode ser obtida a partir da soma de um impulso unitário com uma matriz, definida de tal forma que sua convolução com uma imagem produz aproximadamente o mesmo resultado que aplicar o operador laplaciano sobre esta. Partindo da propriedade associativa das convoluções, podemos entender uma convolução da imagem com a matriz definida como representando a soma da imagem com o próprio laplaciano. Visto que o operador laplaciano apenas possui valor distinto de 0 quando há variação da intensidade de um pixel em relaçao à sua "vizinhanca", podemos concluir que o resultado da convolução será uma imagem composta pela original acrescida de valor onde há variação de sua intensidade, o que é percebido como realce.
-* d) O seu filtro pode ser entendido como “passa-baixa” ou “passa-alta”?
-  * Como elaborado na questão anterior, o filtro dá ênfase às regiões de maior variação de intensidade da imagem, portanto, pode ser entendido como "passa-alta".
 
-## 2) Remover o ruído do tipo “salt & pepper” e “gaussian” de imagens
+* c) Explain why your filter enhances contrast and put a filtered image in your report alongside the original. It could be “moon.tif” itself or another one.
+  * The images are in the repository, in the “Sharpen” folder.
+  * The matrix shown can be obtained from the sum of a unit impulse and a matrix, defined in such a way that its convolution with an image produces approximately the same result as applying the Laplacian operator to it. Based on the associative property of convolutions, we can understand a convolution of the image with the matrix defined as representing the sum of the image with the Laplacian itself. Since the Laplacian operator only has a value other than 0 when there is a variation in the intensity of a pixel in relation to its “neighborhood”, we can conclude that the result of the convolution will be an image composed of the original plus the value where there is a variation in its intensity, which is perceived as enhancement.
+* d) Can your filter be understood as “low pass” or “high pass”?
+  * As elaborated in the previous question, the filter emphasizes the regions of greatest intensity variation in the image, so it can be understood as “high-pass”.
 
-Siga os passos:
-* a) Obtenha uma foto que tenha um fundo relativamente homogêneo (“quase” uma única cor) e um ou mais objetos em 1º plano. A resolução mínima é de 200 x 200 pixels (pode ser maior). Pode ser uma foto sua ou de um rosto obtido na Internet. Não repita a foto usada por um colega nem deixe repetirem a sua. Para lhe inspirar e servir como exemplo, a foto abaixo tem as características desejadas.
-  * A imagem consta no repositório, dentro da pasta "PSNR"
+## 2) Removing “salt & pepper” and “Gaussian” noise from images
 
-* b) Se a imagem for colorida, a converta para tons de cinza, usando 8 bits por pixel, com valores de 0 a 255. A função rgb2gray.m faz isso. A imagem em tons de cinza será chamada de “im_original”.
-  * Consta no repositório 
-* c) Usando a função imnoise, crie uma versão ruidosa da imagem original com ruído do tipo “salt & pepper” e densidade (“density”, parâmetro da imnoise) de 0.06. Repita o passo mas com density de apenas 0.005. Além destas duas imagens com ruído salt & pepper, gere imagens com ruído Gaussiano de média 0 e variâncias 0.001 e 0.03, por exemplo, com o comando:
+Follow the steps:
+* a) Take a photo that has a relatively homogeneous background (“almost” a single color) and one or more objects in the foreground. The minimum resolution is 200 x 200 pixels (can be higher). It can be a photo of yourself or a face taken from the Internet. Don't repeat the photo used by a colleague or let them repeat yours. To inspire you and serve as an example, the photo below has the desired characteristics.
+  * The image is in the repository, in the "PSNR" folder.
+
+* b) If the image is in color, convert it to grayscale, using 8 bits per pixel, with values from 0 to 255. The rgb2gray.m function does this. The grayscale image will be called “original_im”.
+  * It's in the repository
+* c) Using the imnoise function, create a noisy version of the original image with “salt & pepper” noise and a density (“density”, imnoise parameter) of 0.06. Repeat the step but with a density of only 0.005. In addition to these two images with salt & pepper noise, generate images with Gaussian noise of mean 0 and variances 0.001 and 0.03, for example, with the command:
 ~~~Matlab
 imnoise(im_original,'gaussian',0,0.001)
 ~~~
-No final, você deve ter 4 versões ruidosas da imagem original.
+In the end, you should have 4 noisy versions of the original image.
 
-Sua tarefa é usar filtros para reduzir o ruído das versões ruidosas e comparar com a imagem original. A figura de mérito da filtragem será a PSNR, ou “razão sinal de pico / ruido”, que usa como “pico” o valor máximo de um pixel que é igual a 255 neste caso. A PSNR pode ser calculada em dB como segue:
+
+Your task is to use filters to reduce the noise of the noisy versions and compare them with the original image. The figure of merit of the filtering will be the PSNR, or “peak signal to noise ratio”, which uses the maximum value of a pixel as the “peak”, which in this case is 255. The PSNR can be calculated in dB as follows:
 ~~~Matlab
-error=im_original-im_pouco_ruido; %imagem de erro
-MSE=mean(error(:).^2) %error(:) eh um vetor 
-PSNR = 10*log10(255^2/MSE)  %valor em dB
+error=im_original-im_little_noise; %error image
+MSE=mean(error(:).^2) %error(:) is a vector
+PSNR = 10*log10(255^2/MSE) %value in dB
 ~~~
 
-Os dois filtros a serem usados são o de média e mediana. O de média pode ser obtido com ```fspecial('average',M)``` , onde M indica que o kernel do filtro é de dimensão M x M. Depois de se obter o kernel do filtro, pode-se usar a função ```filter2``` para executar a filtragem. O filtro de mediana pode usar diretamente a função ```medfilt2``` com algo como
-```medfilt2(noisyImage,[M M])```
-onde o [M M] indica uma região de M x M pixels da qual se extrai a mediana. Para ambos os filtros, variem os valores de M no conjunto {3, 5, 7}.
+The two filters to be used are the mean and median. The average filter can be obtained with ``fspecial(‘average’,M)`` , where M indicates that the filter kernel is of dimension M x M. After obtaining the filter kernel, you can use the ``filter2`` function to perform the filtering. The median filter can directly use the ``medfilt2`` function with something like
+``medfilt2(noisyImage,[M M])``
+where the [M M] indicates a region of M x M pixels from which the median is extracted. For both filters, vary the values of M in the set {3, 5, 7}.
 
-* d) Para cada uma das 4 versões ruidosas, para cada um dos dois tipos de filtro (média e mediana) e para cada um dos 3 valores de M, calcule a PSNR entre a imagem original e a imagem ruidosa após passar pelo filtro. Para ter uma ideia dos valores envolvidos, calcule também a PSNR entre a imagem original e a versão ruidosa, sem passar por filtro.
-  * Consta no repositório.
-  
- 
-Ao fim das simulações, você terá resultados como o abaixo. Componha a partir deles uma tabela e a coloque como parte de seu relatório. Coloque também o script Matlab / Octave usado.
+* d) For each of the 4 noisy versions, for each of the two filter types (mean and median) and for each of the 3 values of M, calculate the PSNR between the original image and the noisy image after passing through the filter. To get an idea of the values involved, also calculate the PSNR between the original image and the noisy version, without filtering.
+  * In the repository.
+At the end of the simulations, you will have results like the one below. Compose a table from them and place it as part of your report. Also include the Matlab / Octave script used.
 
-Responda no relatório o seguinte:
-* 1) Por que para o ruído salt & pepper o filtro de mediana é tão melhor que o de média?
-  * Visto que o ruído salt and pepper é caracterizado por pontos completamente pretos ou completamente brancos espalhados pela imagem, representados por valor máximo ou mínimo de intensidade em uma imagem digital, temos que ao organizá-los numa lista, os pixels ruidosos sempre estarão nas suas extremidades. Visto que a mediana de uma lista retorna apenas os valores no seu meio, os pixels ruidosos tendem a ser despezados pelo algoritmo. Ademais, se a distribuição de pixels brancos e pretos for semelhante numa mesma região, haverá pequeno deslocamento dos pixels no meio da lista visto que a quantidade de pixels brancos adicionados a um extremo e pretos adicionados ao outro tendem a se balancear.
-* 2) A PSNR é uma figura de mérito objetiva, mas analisando as imagens de forma subjetiva, qual o filtro que conserva melhor as bordas dos objetos na imagem?
-  * Analisando de forma subjetiva, o filtro de mediana converva melhor as bordas dos objetos
-* 3) Quando o ruído é Gaussiano e a PSNR é relativamente alta, os filtros não parecem ajudar muito (melhorar a PSNR). Mas quando a PSNR é baixa, eles parecem melhorar. Você concorda? Se sim, qual o motivo deste comportamento? Se não, em qual aspecto o raciocínio está incompleto?
-  * Eu concordo com a afirmação. O comportamento provavelmente se deve ao fato de que  quando uma imagem já possui baixo  ruído (PSNR alta), por mais que o ruído seja removido, a diferença causada por tal não será muito expressiva, o que é acentuado pelo fato de dB ser uma escala logaritmica. Por outro lado, quando a imagem possui alto ruído, qualquer efeito que o filtro cause provavelmente causará redução do ruído, portanto alteração mais expressiva na PSNR.
-* 4) Pensando no custo computacional dos processos de filtragem, qual o filtro que demanda mais poder de processamento, o de média ou mediana?
-  * O custo computacional depende dos algoritmos empregados, contudo, assumindo implementação eficiente de ambos os filtros, o mais custoso seria o de mediana, pois precisa de operações como sorting de uma lista para cada pixel na imagem.
+Answer the following in the report:
+* 1) Why is the median filter so much better than the mean filter for salt & pepper noise?
+  * Since salt and pepper noise is characterized by completely black or completely white dots scattered throughout the image, represented by the maximum or minimum intensity value in a digital image, when organizing them in a list, the noisy pixels will always be at the ends of the list. Since the median of a list returns only the values in its middle, noisy pixels tend to be ignored by the algorithm. Furthermore, if the distribution of black and white pixels is similar in the same region, there will be little displacement of the pixels in the middle of the list since the number of white pixels added to one end and black pixels added to the other tends to balance out.
+* 2) The PSNR is an objective figure of merit, but analyzing the images subjectively, which filter best preserves the edges of the objects in the image?
+  * Analyzing subjectively, the median filter converts the edges of the objects better.
+
+* 3) When the noise is Gaussian and the PSNR is relatively high, the filters don't seem to help much (improve the PSNR). But when the PSNR is low, they seem to improve it. Do you agree? If so, what is the reason for this behavior? If not, in which aspect is the reasoning incomplete?
+  * I agree with the statement. The behavior is probably due to the fact that when an image already has low noise (high PSNR), no matter how much noise is removed, the difference caused by it will not be very significant, which is accentuated by the fact that dB is a logarithmic scale. On the other hand, when the image is noisy, any effect that the filter causes is likely to cause a reduction in noise, and therefore a more significant change in PSNR.
+* 4) Thinking about the computational cost of filtering processes, which filter requires more processing power, the average or median?
+  * The computational cost depends on the algorithms used, however, assuming efficient implementation of both filters, the most costly would be the median filter, as it requires operations such as sorting a list for each pixel in the image.

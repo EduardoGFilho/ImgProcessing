@@ -47,13 +47,8 @@ def median_filter(img, filter_size):
                         if j >= 0 and j < img.shape[1] :
                             tmp.append(img[i][j])
 
-            if(isEven(len(tmp))):
-                #typecasting avoids overflow for even-sized list and white pixels
-                #but since this is slow, it should only be done if need be
-                img_final[img_column][img_row] = median(np.array(tmp, dtype=np.int16))
-            else:
-                tmp.sort()
-                img_final[img_column][img_row] = tmp[len(tmp)//2]
+            tmp.sort()
+            img_final[img_column][img_row] = tmp[len(tmp)//2]
             
             
     return img_final
