@@ -1,7 +1,7 @@
 # Projeto de Processamento de Imagens
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/EduardoGFilho/ImgProcessing/blob/main/README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.pt-br.md://github.com/EduardoGFilho/ImgProcessing/blob/main/README.pt.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/EduardoGFilho/ImgProcessing/blob/main/README.pt.md)
 
 ## O projeto prevê dois problemas de filtragem de imagens:
 * 1) Realçar o contraste de uma imagem
